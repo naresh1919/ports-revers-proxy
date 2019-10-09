@@ -1,0 +1,21 @@
+this is for port forwrarding of the apache2 server to another server or to tomcat
+
+after installation of apache2 server enable below services
+
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod proxy_balancer
+sudo a2enmod lbmethod_byrequests
+## after these restart the apache2 server
+
+edit these file  /etc/apache2/sites-available/000-default.conf
+
+<VirtualHost *:80>
+    ProxyPreserveHost On
+
+    ProxyPass / http://127.0.0.1:8080/                   ## in ip palces place your ip
+    ProxyPassReverse / http://127.0.0.1:8080/               ## ## in ip palces place your ip
+</VirtualHost>
+ repalce these above lines in above file 
+ 
+ now restart apache2 server
