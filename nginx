@@ -1,0 +1,6 @@
+install nginx application on server
+edit file /etc/nginx/sites-available/default
+add below lines in above file 
+proxy_pass http://127.0.0.1:8080/;   ### in ip address change ip as you need 
+in this file add below lines   /etc/nginx/sites-available/default
+     root /usr/share/tomcat8/webapps/              ### or change the directory basaed on recuitment
