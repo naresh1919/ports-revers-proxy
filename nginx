@@ -4,3 +4,23 @@ add below lines in above file
 proxy_pass http://127.0.0.1:8080/;   ### in ip address change ip as you need 
 in this file add below lines   /etc/nginx/sites-available/default
      root /usr/share/tomcat8/webapps/              ### or change the directory basaed on recuitment
+
+
+
+################# nginx load balancer to apache servers #####################
+
+edit /etc/nginx/nginx.conf
+
+paste below lines in above file in "http{ }" syntax
+
+        upstream backend {
+        server 172.31.12.212:80;
+        server 172.31.9.40:80;
+        }
+
+edit /etc/nginx/sites-available/default
+
+place below lines in above file in "location{ }" syantax
+
+        proxy_pass http://backend;                        ### hear "backend" name come from above file pasted syntax
+
