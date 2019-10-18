@@ -19,3 +19,16 @@ edit these file  /etc/apache2/sites-available/000-default.conf
  repalce these above lines in above file 
  
  now restart apache2 server
+
+###########################  apache2 as a load balancer ####################
+
+#enable above mensined services
+
+edit above file   /etc/apache2/sites-available/000-default.conf
+# paste below lines in above command
+        <Proxy "balancer://mycluster">
+        BalancerMember "http://172.31.0.204:80"
+        BalancerMember "http://172.31.9.40:80"
+        </Proxy>
+        ProxyPass / "balancer://mycluster"
+        ProxyPassReverse / "balancer://mycluster"
