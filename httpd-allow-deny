@@ -1,0 +1,18 @@
+# for allow and deny in rhel httpd file
+go to /etc/httpd/conf.d/welcome.conf
+
+<Directory /usr/share/httpd/noindex>
+    AllowOverride None
+    Require all granted
+</Directory>
+
+and configure the above lines as below lines
+
+<Directory /usr/share/httpd/noindex>
+    AllowOverride All
+    Order allow,deny
+    deny from 103.110.146.109   # for deny this ip address only
+    allow from all              # for allow all ips
+    Require all granted
+</Directory>
+
