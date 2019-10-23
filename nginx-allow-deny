@@ -1,0 +1,17 @@
+## configure access and deny to the nginx server
+go to file /etc/nginx/sites-available/default
+
+location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ =404;
+        }
+
+# add lines in the above location
+ location / {
+                allow 103.110.146.109;   # this for allow pirticular ip
+                deny all                 # this is for deny all other accesses
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ =404;
+        }
