@@ -1,0 +1,19 @@
+## for provide allow and deny access for apache2 is
+# first go to the /etc/apache2/apache2.conf
+# go to which file location we want to control
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+</Directory>
+
+# change above location  to like below as you want
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride Yes      # this allows you to override the default permission
+        Require all granted    # this must be in enable dont change this
+        Order Allow,Deny      
+        Allow from all        # if you want to allow all and deny some one
+#       Allow from 103.110.146.109/32    # this is for allow someone 
+        Deny from 103.110.146.109/32     # this is for deny someone
+</Directory>
