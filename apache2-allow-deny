@@ -10,7 +10,7 @@
 # change above location  to like below as you want
 <Directory /var/www/>
         Options Indexes FollowSymLinks
-        AllowOverride Yes      # this allows you to override the default permission
+        AllowOverride All      # this allows you to override the default permission
         Require all granted    # this must be in enable dont change this
         Order Allow,Deny      
         Allow from all        # if you want to allow all and deny some one
