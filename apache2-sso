@@ -1,7 +1,10 @@
 ##enable these firest
 
-a2enmod headers
 a2enmod rewrite
+a2enmod headers
+a2enmod proxy
+a2enmod proxy_http
+
 
 <VirtualHost *:80>
         # The ServerName directive sets the request scheme, hostname and port that
